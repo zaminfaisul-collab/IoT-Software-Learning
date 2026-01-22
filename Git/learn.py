@@ -43,5 +43,6 @@ data = {
     "湿度":humidities,
 }
 df = pd.DataFrame(data)
+df.to_csv("D:/Project/pythonProject/Git/learn_data.csv", index=False, encoding='utf-8')
 print("\n生成的传感器数据表格：")
 print(df)
