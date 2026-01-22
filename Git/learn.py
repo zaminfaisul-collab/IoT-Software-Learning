@@ -1,6 +1,7 @@
 import random
 import time
 import pandas as pd
+import matplotlib.pyplot as plt
 
 def get_temperature():
     return round(random.uniform(20.0, 35.0), 2)  # 模拟温度20-35℃
@@ -43,6 +44,20 @@ data = {
     "湿度":humidities,
 }
 df = pd.DataFrame(data)
+
+#计算最大最小和平均温度湿度
+avg_temp = df["温度"].mean()
+max_temp = df["温度"].max()
+min_temp = df["温度"].min()
+
+avg_hum = df["湿度"].mean()
+max_hum = df["湿度"].max()
+min_hum = df["湿度"].min()
+
+print("\n                传感器数据处理                ")
+print(f"温度统计->:平均值{avg_temp:.2f}℃,最大值{max_temp}℃,最小值{min_temp}℃")
+print(f"湿度统计->:平均值{avg_hum:.2f}%,最大值{max_hum}%，最小值{min_hum}%")
+
 df.to_csv("D:/Project/pythonProject/Git/learn_data.csv", index=False, encoding='utf-8')
 print("\n生成的传感器数据表格：")
 print(df)
