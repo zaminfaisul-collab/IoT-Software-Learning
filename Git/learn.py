@@ -3,6 +3,10 @@ import time
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# 设置支持中文的字体（Windows 常用字体）
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
 def get_temperature():
     return round(random.uniform(20.0, 35.0), 2)  # 模拟温度20-35℃
 
@@ -22,7 +26,7 @@ for i in range(5):  # 采集5次
     temperatures.append(temp)
     humidities.append(hum)
     print(f"第{i+1}次采集 -> 温度: {temp}℃, 湿度: {hum}%")
-    time.sleep(1)  # 每秒采集一次
+    time.sleep(0.5)  # 每0.5秒采集一次
 
 def test_temperature_range():
     temp = get_temperature()
@@ -61,3 +65,10 @@ print(f"湿度统计->:平均值{avg_hum:.2f}%,最大值{max_hum}%，最小值{m
 df.to_csv("D:/Project/pythonProject/Git/learn_data.csv", index=False, encoding='utf-8')
 print("\n生成的传感器数据表格：")
 print(df)
+df.plot(kind='bar',x='采集次数',y=['温度','湿度'],figsize=(10, 6),color=['blue', 'green'])
+plt.savefig("D:/Project/pythonProject/Git/温湿度条形图.png",
+            dpi=300,
+            bbox_inches='tight',
+            )
+plt.show()
+print('温湿度条形图已保存')
