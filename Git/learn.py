@@ -3,7 +3,6 @@ import time
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# 设置支持中文的字体（Windows 常用字体）
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
