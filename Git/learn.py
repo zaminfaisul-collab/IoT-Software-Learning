@@ -64,10 +64,10 @@ print(f"湿度统计->:平均值{avg_hum:.2f}%,最大值{max_hum}%，最小值{m
 df.to_csv("D:/Project/pythonProject/Git/learn_data.csv", index=False, encoding='utf-8')
 print("\n生成的传感器数据表格：")
 print(df)
-df.plot(kind='bar',x='采集次数',y=['温度','湿度'],figsize=(10, 6),color=['blue', 'green'])
-plt.savefig("D:/Project/pythonProject/Git/温湿度条形图.png",
-            dpi=300,
-            bbox_inches='tight',
-            )
+df.plot(x='采集次数',y=['温度','湿度'],figsize=(10, 6),color=['blue', 'green'])
+plt.title('传感器数据记录')
+plt.xlabel('采集次数')
+plt.ylabel('数值')
+plt.savefig("D:/Project/pythonProject/Git/温湿度数据图.png",dpi=300,bbox_inches='tight')
 plt.show()
-print('温湿度条形图已保存')
+print('温湿度数据图已保存')
